@@ -1,2 +1,3 @@
 # ADS
-Doctor Appointment System(Backend by Spring boot and JSONWebToken) 
+Doctor Appointment System.
+(Backend implemented by Spring boot and JSONWebToken) 
