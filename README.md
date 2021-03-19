@@ -1,5 +1,5 @@
 # DAS
-Doctor Appointments System
+
 The DAS (Doctor Appointment System) manages the process of booking an appointment between a doctor and a patient. All patients can log in, view their doctors' open slots, and book an appointment at an available time slot. Patients can also view or cancel their appointments, pay bills, and update their personal information. Doctors can log in and view all booked appointments from their patients. Administrators are responsible for updating doctors' available time slots, updating doctors' information, and billing patients.
 
 ## Technologies Used
