@@ -15,13 +15,13 @@ Java, Spring boot, PostgreSQL, Hibernate, JPA, JSONWebTokens, Jenkins, Git, Mave
 2. To improve billing system.
 
 ## Project set up
-1. Download source code by: git clone https://github.com/GoldWayBear/Expense-Reimbursement-System
-Setup AWS RDS with Postgres Database
-Setup AWS EC2 instance
-Set up Apache tomcat and Jenkins and Enviroment varibles in EC2
-Run Apache tomcat and Jekins in EC2
-Set up CI/CD in Jenkins by using Maven Integration,Slack Notification,Github Integration and Deploy to Container
-Build all project by tools in Jenkins
+1. Download source code by: git clone https://github.com/GoldWayBear/DAS.git
+2. Setup AWS RDS with Postgres Database
+3. Setup AWS EC2 instance
+4. Jenkins and Enviroment varibles in EC2
+5. Run Jekins in EC2
+6. Set up CI/CD in Jenkins 
+7. Build project in Jenkins
 
 ## How to connect Git and EC2 in windows
 Using Git Bash to pull or upload source code in windows.
