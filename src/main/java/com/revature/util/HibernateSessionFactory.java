@@ -12,10 +12,9 @@ public class HibernateSessionFactory {
 	public static Session getSession() throws HibernateException{
 		
 		if(sessionFactory == null) {
-			
 			sessionFactory = new Configuration().configure()
-					.setProperty("hibernate.connection.url", "jdbc:postgresql://localhost:5432/postgres")
-					.setProperty("hibernate.connection.password", "Heix#394")
+					.setProperty("hibernate.connection.url", "jdbc:postgresql://jan25instance.cwf2xyclvqxz.us-east-1.rds.amazonaws.com:5432/postgres")
+					.setProperty("hibernate.connection.password", "password2021")
 					.setProperty("hibernate.connection.username", "postgres")
 					.buildSessionFactory();
 		}

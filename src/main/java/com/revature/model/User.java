@@ -13,16 +13,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 
 @Entity
-
 @Table(name = "user", schema="das")
-
 
 public class User {
 	
@@ -37,8 +37,9 @@ public class User {
 	@Column(name="password")
 	private String password;
 	
-	@Column
-	private Byte[] profilepicture;
+	@Column(columnDefinition="bytea")
+	private byte[] profilepicture;
+	
 	@Column
 	private String firstName;
 	@Column
@@ -62,30 +63,25 @@ public class User {
 	@Column
 	private String role;
 	
-	
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "das_user_role", 
+
+	@JoinTable(name = "user_role", schema="das", 
 				joinColumns = @JoinColumn(name = "userId"), 
-				inverseJoinColumns = @JoinColumn(name = "roleId"))		
+				inverseJoinColumns = @JoinColumn(name = "roleId"))	
+
 	private Set<Role> roles = new HashSet<>();
 	
-//	
-//	
 //	
 //	@JoinColumn
 //	@OneToOne
 //	private Role role;
-	
-	
 	
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
-	
-
-	public User(int userId, String username, String password, Byte[] profilepicture, String firstName, String lastName,
+	public User(int userId, String username, String password, byte[] profilepicture, String firstName, String lastName,
 			String gender, String email, long phone, Address address, Date dob, String role, Set<Role> roles) {
 		super();
 		this.userId = userId;
@@ -129,11 +125,11 @@ public class User {
 		this.password = password;
 	}
 
-	public Byte[] getProfilepicture() {
+	public byte[] getProfilepicture() {
 		return profilepicture;
 	}
 
-	public void setProfilepicture(Byte[] profilepicture) {
+	public void setProfilepicture(byte[] profilepicture) {
 		this.profilepicture = profilepicture;
 	}
 

@@ -32,7 +32,7 @@ public class Bill {
 	@Column
 	private Date date;
 	
-	@Column
+	@Column(name="duedate")
 	private Date dueDate;
 
 	public Bill() {

@@ -10,7 +10,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.revature.auth.repository.UserRepository;
+import com.revature.repository.UserRepository;
 import com.revature.model.User;
 
 /**

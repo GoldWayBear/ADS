@@ -23,7 +23,7 @@ public class Appointment {
 	private int appointmentId;
 	
 	@Column
-	private Date time;
+	private java.sql.Timestamp time;
 	@JoinColumn
 	@ManyToOne
 	private User patient;
@@ -35,7 +35,7 @@ public class Appointment {
 	
 	public Appointment() {}
 
-	public Appointment(int appointmentId, Date time, User patient, User doctor, String status) {
+	public Appointment(int appointmentId, java.sql.Timestamp time, User patient, User doctor, String status) {
 		super();
 		this.appointmentId = appointmentId;
 		this.time = time;
@@ -98,11 +98,11 @@ public class Appointment {
 		this.appointmentId = appointmentId;
 	}
 
-	public Date getTime() {
+	public java.sql.Timestamp getTime() {
 		return time;
 	}
 
-	public void setTime(Date time) {
+	public void setTime(java.sql.Timestamp time) {
 		this.time = time;
 	}
 

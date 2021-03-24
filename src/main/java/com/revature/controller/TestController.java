@@ -1,10 +1,14 @@
 package com.revature.controller;
 
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.revature.auth.service.UserDetailsInDAS;
 
 /**
  * @author Jinwei Xiong
@@ -32,6 +36,12 @@ public class TestController {
 	@PreAuthorize("hasRole('DOCTOR')")
 	public String doctorAccess() {
 		System.out.println("Now in Doctor");
+		//UserDetailsInDAS userDetails = (UserDetailsInDAS)authentication.getPrincipal();
+		
+		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication()
+                .getPrincipal();
+		String current_username = userDetails.getUsername();
+		System.out.println("With current user name:"+current_username);
 		return "doctor content return from DAS.";
 	}
 	
@@ -41,4 +51,5 @@ public class TestController {
 		System.out.println("Now in Admin");
 		return "Admin content return from DAS.";
 	}
+	
 }

@@ -5,6 +5,9 @@ package com.revature.repository;
 
 import java.util.List;
 
+import com.revature.model.Address;
+import com.revature.model.Appointment;
+import com.revature.model.Bill;
 import com.revature.model.User;
 
 
@@ -20,6 +23,9 @@ public interface UserDAO {
 	public User findUserByUsername(String username);
 	public User findUserByEmail(String email);
 
-	public int addUser(User user);
+	public User save(User user);
 	public boolean updateUser(User user);
+	Bill saveBill(Bill bill);
+	Appointment saveAppointment(Appointment appointment);
+	Address saveAddress(Address addr);
 }

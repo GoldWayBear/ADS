@@ -41,7 +41,7 @@ public class AdminRepositoryImpl implements AdminRepository {
 				s = HibernateSessionFactory.getSession();
 				tx = s.beginTransaction();
 				// This method persists the doctor,address and login (i.e. creates a new record in three tables)
-				s.save(address);
+				//s.save(address);
 			
 				s.save(doctor);
 				tx.commit();

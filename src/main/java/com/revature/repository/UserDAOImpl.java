@@ -13,6 +13,9 @@ import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
+import com.revature.model.Address;
+import com.revature.model.Appointment;
+import com.revature.model.Bill;
 import com.revature.model.User;
 import com.revature.util.HibernateSessionFactory;
 
@@ -135,14 +138,13 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public int addUser(User user) {
-		int id = 0;
+	public User save(User user) {
 		try {
 	        currentSession = HibernateSessionFactory.getSession();
 	        currentSession.beginTransaction();
 	        currentSession.save(user);
 	        currentSession.getTransaction().commit();
-			id = user.getUserId(); 
+	        
 		}catch(HibernateException e) {
 			if(currentSession.getTransaction() != null) {
 				LOGGER.error("Error at adding an User, transaction is Being Rolled Back.",e);
@@ -152,9 +154,29 @@ public class UserDAOImpl implements UserDAO {
 		}finally {
 				currentSession.close();			
 		}
-		return id;
+		return user;
 	}
 
+	@Override
+	public Bill saveBill(Bill bill) {
+		try {
+	        currentSession = HibernateSessionFactory.getSession();
+	        currentSession.beginTransaction();
+	        currentSession.save(bill);
+	        currentSession.getTransaction().commit();
+	        
+		}catch(HibernateException e) {
+			if(currentSession.getTransaction() != null) {
+				LOGGER.error("Error at adding an User, transaction is Being Rolled Back.",e);
+				currentSession.getTransaction().rollback();				
+			}
+			e.printStackTrace();
+		}finally {
+				currentSession.close();			
+		}
+		return bill;
+	}	
+	
 	@Override
 	public boolean updateUser(User user) {
 		try {
@@ -176,4 +198,47 @@ public class UserDAOImpl implements UserDAO {
 		}
 	}
 
+	@Override
+	public Appointment saveAppointment(Appointment appointment) {
+		// TODO Auto-generated method stub
+		try {
+	        currentSession = HibernateSessionFactory.getSession();
+	        currentSession.beginTransaction();
+	        currentSession.save(appointment);
+	        currentSession.getTransaction().commit();
+	        
+		}catch(HibernateException e) {
+			if(currentSession.getTransaction() != null) {
+				LOGGER.error("Error at adding an User, transaction is Being Rolled Back.",e);
+				currentSession.getTransaction().rollback();				
+			}
+			e.printStackTrace();
+		}finally {
+				currentSession.close();			
+		}
+		return appointment;
+	}
+
+	@Override
+	public Address saveAddress(Address addr) {
+		// TODO Auto-generated method stub
+		try {
+	        currentSession = HibernateSessionFactory.getSession();
+	        currentSession.beginTransaction();
+	        currentSession.save(addr);
+	        currentSession.getTransaction().commit();
+	        
+		}catch(HibernateException e) {
+			if(currentSession.getTransaction() != null) {
+				LOGGER.error("Error at adding an User, transaction is Being Rolled Back.",e);
+				currentSession.getTransaction().rollback();				
+			}
+			e.printStackTrace();
+		}finally {
+				currentSession.close();			
+		}
+		return addr;
+	}
+
+	
 }
