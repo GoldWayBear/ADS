@@ -34,7 +34,7 @@ USing SSH to coonect AWS EC2 in windows.
 4. Administrators are responsible for updating doctors' available time slots, updating doctors' information, and billing patients.
 
 ## start using it
-URL: 
+URL: http://d199hezc9vlwtq.cloudfront.net/
 
 ## License
 This project uses the following license:
